@@ -9,7 +9,7 @@
 import UIKit
 
 class CalculatorViewController: UIViewController {
-
+    var tip : Double = 0.0
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var zeroPctButton: UIButton!
     @IBOutlet weak var tenPctButton: UIButton!
@@ -41,19 +41,33 @@ class CalculatorViewController: UIViewController {
         
     }
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
-        
+       
         if zeroPctButton.isSelected == true {
+            tip = 0
             print("tip is 0 % ")
         }
         else if tenPctButton.isSelected == true{
+            tip = Double(0.1)
             print("tip is 0.1 % ")
         }
         else if twentyPctButton.isSelected == true{
+            tip = Double(0.2)
             print("tip is 0.2 % ")
         }
+        print(tip)
+        print(splitNumberlabel.text!)
         print(billTextField.text!)
         
+        let bill = Double(billTextField.text!)
+        let noOfPersons = Double(splitNumberlabel.text!)
+        print((bill! + (bill!*tip)))
+        let splitBill = Double((bill! + (bill!*tip)) / noOfPersons!)
+        print(splitBill)
+        performSegue(withIdentifier: "goToResult", sender: self)
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
     }
     
     
