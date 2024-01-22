@@ -41,6 +41,7 @@ class CalculatorViewController: UIViewController {
         
     }
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
+        
         if zeroPctButton.isSelected == true {
             print("tip is 0 % ")
         }
@@ -50,7 +51,11 @@ class CalculatorViewController: UIViewController {
         else if twentyPctButton.isSelected == true{
             print("tip is 0.2 % ")
         }
+        print(billTextField.text!)
+        
+        
     }
+    
     
 
 
