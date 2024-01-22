@@ -11,6 +11,8 @@ import UIKit
 class ResultViewController: UIViewController {
 
     var totalAmount : Double = 0
+    var noOfPeople : Int = 0
+    var tipPercentage :Int = 0
     
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var settingsLabel: UILabel!
@@ -18,6 +20,7 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
 
         totalLabel.text = String(format: "%.2f", totalAmount)
+        settingsLabel.text = "split between \(noOfPeople) people with \(tipPercentage)% tip"
         
     }
     @IBAction func recalculatePressed(_ sender: UIButton) {

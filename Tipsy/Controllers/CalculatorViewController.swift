@@ -11,6 +11,8 @@ import UIKit
 class CalculatorViewController: UIViewController {
     var tip : Double = 0.0
     var splitBill : Double = 0.0
+    var noOfPersons :Double = 0.0
+    
     @IBOutlet weak var billTextField: UITextField!
     @IBOutlet weak var zeroPctButton: UIButton!
     @IBOutlet weak var tenPctButton: UIButton!
@@ -60,9 +62,9 @@ class CalculatorViewController: UIViewController {
         print(billTextField.text!)
         
         let bill = Double(billTextField.text!)
-        let noOfPersons = Double(splitNumberlabel.text!)
+        noOfPersons = Double(splitNumberlabel.text!)!
         print((bill! + (bill!*tip)))
-        splitBill = Double((bill! + (bill!*tip)) / noOfPersons!)
+        splitBill = Double((bill! + (bill!*tip)) / noOfPersons)
         print(splitBill)
         performSegue(withIdentifier: "goToResult", sender: self)
         
@@ -71,6 +73,8 @@ class CalculatorViewController: UIViewController {
         if segue.identifier == "goToResult"{
             let destinationVc = segue.destination as! ResultViewController
             destinationVc.totalAmount = splitBill
+            destinationVc.noOfPeople = Int(noOfPersons)
+            destinationVc.tipPercentage = Int(tip*100)
             
         }
     }
