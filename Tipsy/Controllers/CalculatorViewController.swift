@@ -20,28 +20,34 @@ class CalculatorViewController: UIViewController {
         if sender.currentTitle == "0%"{
             zeroPctButton.isSelected = true
             tenPctButton.isSelected = false
-            print("zero selected")
+           
         }else if sender.currentTitle == "10%"{
             tenPctButton.isSelected = true
             zeroPctButton.isSelected = false
             twentyPctButton.isSelected = false
-            print("ten selected")
+          
         }
         else {
             zeroPctButton.isSelected =  false
             twentyPctButton.isSelected = true
             tenPctButton.isSelected = false
-            print("twenty selected")
+            
         }
     }
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
     }
     @IBAction func calculateButtonPressed(_ sender: UIButton) {
+        if zeroPctButton.isSelected == true {
+            print("tip is 0 % ")
+        }
+        else if tenPctButton.isSelected == true{
+            print("tip is 0.1 % ")
+        }
+        else if twentyPctButton.isSelected == true{
+            print("tip is 0.2 % ")
+        }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
+    
 
 
 }
